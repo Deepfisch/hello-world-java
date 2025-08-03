@@ -10,7 +10,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
     
-    <n>Hello World Java App</n>
+    <name>Hello World Java App</name>
     <description>Demo Java application for Jenkins CI/CD</description>
     
     <properties>
