@@ -21,10 +21,22 @@ pipeline {
             }
         }
         
-        stage('Build') {
+    stage('Build') {
             steps {
                 echo 'Сборка проекта с Maven...'
-                sh 'mvn clean compile'
+                sh '''
+                    export PATH=/usr/bin:/usr/share/maven/bin:$PATH
+                    mvn clean compile
+                '''
+            }
+        }
+        
+        stage('Debug') {
+            steps {
+                sh 'echo $PATH'
+                sh 'which java || echo "java not found"'
+                sh 'which mvn || echo "mvn not found"'
+                sh 'ls -la /usr/bin/mvn || echo "mvn not in /usr/bin"'
             }
         }
         
